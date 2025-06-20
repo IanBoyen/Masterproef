@@ -97,8 +97,8 @@ def run_test(model: torch.nn.Module,
                     total_reg_dict[insert_type_int] += 1
 
                     #mse and mae
-                    mse_dict[insert_type_int] = mse(torch.tensor([predicted_value], device=device), torch.tensor([true_value], device=device))
-                    mae_dict[insert_type_int] = mae(torch.tensor([predicted_value], device=device), torch.tensor([true_value], device=device))
+                    mse_dict[insert_type_int] += mse(torch.tensor([predicted_value], device=device), torch.tensor([true_value], device=device))
+                    mae_dict[insert_type_int] += mae(torch.tensor([predicted_value], device=device), torch.tensor([true_value], device=device))
 
             # Collect true labels and predictions for classification report
             gt_class.extend(class_labels_int.cpu().numpy())
